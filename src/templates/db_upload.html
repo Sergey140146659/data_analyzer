@@ -1,0 +1,59 @@
+{% extends "bases/admin.html" %}
+
+
+{% block head %}
+
+<link rel="stylesheet" href="../static/styles/db_upload.css">
+<script src="../static/scripts/db-upload.js"></script>
+<title>Smart Manual - Admin DataBase Upload</title>
+
+{% endblock %}
+
+
+{% block content %}
+
+<section class="db-upload">
+    <div class="db-upload__inner container">
+        <h1 class="title">База данных</h1>
+        <div class="db-upload__content">
+            <div class="loaded-db">
+                <ul class="subject-list"></ul>
+                <hr class="loaded-db__hr">
+                <h2 class="subtitle">Добавление предмета</h2>
+                <form class="add-subject-form">
+                    <label class="d-none" for="subject">Название предмета</label>
+                    <input class="subject-form__input" type="text" id="subject" name="subject" placeholder="Название предмета" autocomplete="off">
+                    <button class="add-subject-form__submit" type="submit">+</button>
+                </form>
+            </div>
+            <div class="db-content">
+                <h2 class="subtitle">Файл</h2>
+                <form class="upload-file-form">
+                    <label class="d-none" for="subject_file">Загрузить файл</label>
+                    <input class="upload-file-form__input" type="file" name="subject_file" id="subject_file" required>
+                </form>
+                <h2 class="subtitle">Темы</h2>
+                <form class="subject-form">
+                    <div class="theme-inputs-group">
+                        <label class="d-none" for="theme">Название темы</label>
+                        <input class="subject-form__input theme-name__input" type="text" id="theme" name="theme" placeholder="Название темы" autocomplete="off">
+                        <div class="number-inputs">
+                            <label class="d-none" for="start-page-num">Первая страница</label>
+                            <input class="subject-form__input page-num__input" type="number" id="start-page-num" name="start-page-num" placeholder="12" autocomplete="off">
+                            <span class="page-num__dash">—</span>
+                            <label class="d-none" for="end-page-num">Последняя страница</label>
+                            <input class="subject-form__input page-num__input" type="number" id="end-page-num" name="end-page-num" placeholder="16" autocomplete="off">
+                        </div>
+                        <button type="button" class="theme__delete-button">✕</button>
+                    </div>
+                    <div class="buttons-group">
+                        <button type="button" class="subject__add-theme-button">Добавить тему</button>
+                        <button type="submit" class="send-button" disabled>Загрузить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
