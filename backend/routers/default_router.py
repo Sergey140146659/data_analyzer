@@ -9,7 +9,7 @@ router = APIRouter(
 @router.get("/default")
 async def deafult(response: Response):
     try:
-        return 0
+        return "Засунул проект акос"
     except Exception as e:
         response.status_code = 500
         return {"status": "error", "message": str(e)}
