@@ -7,7 +7,7 @@ def model_func(x, c1, a1, c2, a2):
     return c1 * np.exp(a1 * x) + c2 * np.exp(a2 * x)
 
 
-def envelopes(x, y):
+def envelopes(y):
     x_data = np.array([i for i in range(len(y))])
     y_data = np.array(y)
     initial_guess = [1.9, -0.1, 1.9, -0.1]
@@ -27,5 +27,3 @@ def envelopes(x, y):
         'popt': popt
 
     }
-
-

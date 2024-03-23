@@ -7,7 +7,7 @@ def model_func(x, c1, a1, c2, a2):
 
 
 def amplitudes(less_zero, greater_zero, envelopes=None, title='title', xlabel='xlabel',
-               ylabel='ylabel', png_name='test', **kwargs):
+               ylabel='ylabel', png_name=None, **kwargs):
     greater_zero = sorted(greater_zero, reverse=True)
     less_zero = sorted(less_zero)
     plt.figure(figsize=(15, 12))
@@ -34,5 +34,5 @@ def amplitudes(less_zero, greater_zero, envelopes=None, title='title', xlabel='x
         popt_less = envelopes['popt_less']
         plt.plot(x_data_less, model_func(x_data_less, *popt_less), color='red')
     if png_name is not None:
-        plt.savefig(f'{png_name}.png')
+        plt.savefig(png_name)
     plt.show()
