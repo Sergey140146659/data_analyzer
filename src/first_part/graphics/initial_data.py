@@ -2,7 +2,7 @@ from matplotlib import pyplot as plt
 
 
 def show_points(data, label='', marker='vr', x_ticks=None, x_label='', y_ticks=None, y_label='', name=None): # график точек
-    x_axis = [i for i in range(len(data))]
+    x_axis = [i for i in range(len( data))]
     y_axis = data[:]
     plt.plot(x_axis, y_axis, marker)
     if y_ticks is not None:
