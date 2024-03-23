@@ -23,19 +23,18 @@ def approximation(x, y, degree=2, title='title', xlabel='xlabel', ylabel='ylabel
     plt.title(title)
     if png_name is not None:
         plt.savefig(png_name)
-
         plt.show()
     return poly, mse
 
 
-def get_best_approximation_degree(x, y):
+def get_best_approximation_degree(x, y, k):
     best_degree = -1
     min_error = 1e18
     for degree in range(1, 20):
         error = approximation(x, y, degree=degree, title='Аппроксимация данных', xlabel='Значения X',
                               ylabel='Значения Y',
-                              png_name=f'approximation_{degree}.png')[1]
-        #print(error, degree)
+                              png_name=f"PRAOF/praof_pics/approximation_k={k}_degree={degree}.png")[1]
+        # print(error, degree)
         if error < min_error and abs(error - min_error) > 0.001:
             min_error = error
             best_degree = degree

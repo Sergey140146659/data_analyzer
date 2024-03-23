@@ -7,7 +7,7 @@ def model_func(x, c1, a1, c2, a2):
 
 
 def amplitudes(less_zero, greater_zero, envelopes=None, title='title', xlabel='xlabel',
-               ylabel='ylabel', png_name='test', **kwargs):
+               ylabel='ylabel', png_name=None, **kwargs):
     greater_zero = sorted(greater_zero, reverse=True)
     less_zero = sorted(less_zero)
     plt.figure(figsize=(15, 12))
