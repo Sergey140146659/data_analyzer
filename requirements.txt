@@ -15,8 +15,5 @@ passlib
 PyJWT
 starlette
 torch
-evaluate
-Levenshtein
-language_tool_python
-pygtrie
 PyPDF2
+matplotlib
