@@ -20,3 +20,4 @@ Levenshtein
 language_tool_python
 pygtrie
 PyPDF2
+matplotlib

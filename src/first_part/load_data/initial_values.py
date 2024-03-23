@@ -1,0 +1,72 @@
+import json
+
+
+def fst_set_values(json_name):  # получение первых констант на основе набора данных
+    with open(json_name, 'r') as file:
+        info = json.load(file)
+    info['n'] = len(info['data'])
+    info['x_min'] = min(info['data'])
+    info['x_max'] = max(info['data'])
+    info['R'] = info['x_max'] - info['x_min']
+    if info['k'] == -1:
+        info['k'] = int(info['n'] ** 0.5)
+    info['d'] = info['R'] / info['k']
+    with open(json_name, 'w') as file:
+        json.dump(info, file)
+    return info
+
+
+def get_intervals(json_name): # получение границ интервалов
+    with open(json_name, 'r') as file:
+        info = json.load(file)
+    inters = []
+    start_int = info['x_min']
+    for _ in range(info['k']):
+        end_int = start_int + info['d']
+        inters.append((start_int, end_int))
+        start_int = end_int
+    info['intervals'] = inters
+    with open(json_name, 'w') as file:
+        json.dump(info, file)
+
+
+def get_emp_freqs(json_name): # получение эмпирических частот
+    with open(json_name, 'r') as file:
+        info = json.load(file)
+    intervals = info['intervals']
+    emp = [0 for _ in range(len(intervals))]
+    for ind in range(len(intervals)):
+        cnt = 0
+        for point in info['sorted_data']:
+            if round(intervals[ind][0], 2) <= point < round(intervals[ind][1], 2):
+                cnt += 1
+        if ind == len(intervals) - 1:
+            cnt += 1
+        emp[ind] = cnt
+    info['empirical_frequencies'] = emp
+    with open(json_name, 'w') as file:
+        json.dump(info, file)
+
+
+def get_inter_freqs(json_name): # получение интервальных частот
+    with open(json_name, 'r') as file:
+        info = json.load(file)
+    emp_f = info['empirical_frequencies']
+    inter_freqs = []
+    for i in range(len(emp_f)):
+        inter_freqs.append(emp_f[i]/info['n'])
+    info['interval_frequencies'] = inter_freqs
+    with open(json_name, 'w') as file:
+        json.dump(info, file)
+
+
+def get_middle_points(json_name): # получение середин интервалов
+    with open(json_name, 'r') as file:
+        info = json.load(file)
+    borders = info['intervals']
+    middle_p = []
+    for i in range(len(borders)):
+        middle_p.append(sum(borders[i])/2)
+    info['middle_points'] = middle_p
+    with open(json_name, 'w') as file:
+        json.dump(info, file)
