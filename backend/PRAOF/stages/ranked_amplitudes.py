@@ -5,13 +5,11 @@ from backend.PRAOF.graphics.amplitudes import amplitudes
 from backend.PRAOF.graphics.approximation import approximation, get_best_approximation_degree
 from backend.PRAOF.graphics.scatter import scatter_plot
 
-
 points = [13.2, 11.9, 11.9, 13.4, 13.4, 13.3, 11.9, 12.1, 12.6, 13.9,
           10.7, 12.3, 10.6, 10.4, 10.6, 11.0, 11.0, 10.8, 10.8, 10.6,
           10.9, 11.9, 11.6, 11.9, 11.3, 11.9, 11.4, 11.3, 11.0, 10.8,
           10.9, 10.9, 11.0, 11.2, 11.8, 11.8, 12.7, 12.9, 12.4, 14.2,
           14.8, 14.8, 15.4, 14.6, 14.1, 13.3, 12.6, 11.1, 11.2, 11.6]
-
 
 x = [i for i in range(len(points))]
 scatter_plot(x=x, y=points, title="График точек", xlabel='Значения X', ylabel='Значения Y', png_name=None)
@@ -19,7 +17,7 @@ scatter_plot(x=x, y=points, title="График точек", xlabel='Значе�
 k = 2
 smoothed_points = supsmooth(points, k)
 smoothed_points = supsmooth(smoothed_points, k)
-#get_best_approximation_degree(x, smoothed_points)
+# get_best_approximation_degree(x, smoothed_points)
 
 scatter_plot(x=x, y=points, x_1=x, y_1=smoothed_points, title="График точек", xlabel='Значения X', ylabel='Значения Y',
              png_name=None)

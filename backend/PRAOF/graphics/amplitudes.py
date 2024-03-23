@@ -34,5 +34,5 @@ def amplitudes(less_zero, greater_zero, envelopes=None, title='title', xlabel='x
         popt_less = envelopes['popt_less']
         plt.plot(x_data_less, model_func(x_data_less, *popt_less), color='red')
     if png_name is not None:
-        plt.savefig(f'{png_name}.png')
+        plt.savefig(png_name)
     plt.show()
