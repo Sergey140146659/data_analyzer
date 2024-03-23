@@ -10,7 +10,6 @@ def supsmooth(lst, k):
             else:
                 if i + j < 0:
                     total += lst[i]
-
                 if i + j >= len(lst):
                     total +=  lst[i]
         smoothed_lst.append(total / (2 * k + 1))
