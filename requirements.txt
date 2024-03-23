@@ -15,6 +15,5 @@ passlib
 PyJWT
 starlette
 torch
-evaluat
 PyPDF2
 matplotlib
