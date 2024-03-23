@@ -1,9 +1,9 @@
 import numpy as np
-from PRAOF.analytical_functions.envelopes import envelopes
-from PRAOF.analytical_functions.smoothing_funcs import supsmooth
-from PRAOF.graphics.amplitudes import amplitudes
-from PRAOF.graphics.approximation import approximation
-from PRAOF.graphics.scatter import scatter_plot
+from backend.PRAOF.analytical_functions.envelopes import envelopes
+from backend.PRAOF.analytical_functions.smoothing_funcs import supsmooth
+from backend.PRAOF.graphics.amplitudes import amplitudes
+from backend.PRAOF.graphics.approximation import approximation
+from backend.PRAOF.graphics.scatter import scatter_plot
 
 
 points = [13.2, 11.9, 11.9, 13.4, 13.4, 13.3, 11.9, 12.1, 12.6, 13.9,
