@@ -37,7 +37,7 @@ def get_emp_freqs(json_name): # получение эмпирических ча
     emp = [0 for _ in range(len(intervals))]
     for ind in range(len(intervals)):
         cnt = 0
-        for point in info['sorted_data']:
+        for point in info['data_sorted']:
             if round(intervals[ind][0], 2) <= point < round(intervals[ind][1], 2):
                 cnt += 1
         if ind == len(intervals) - 1:
