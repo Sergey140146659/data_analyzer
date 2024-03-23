@@ -1,4 +1,6 @@
 def supsmooth(lst, k):
+    if k <= 1:
+        return lst
     smoothed_lst = []
     for i in range(len(lst)):
         total = 0
@@ -14,4 +16,3 @@ def supsmooth(lst, k):
                     total +=  lst[i]
         smoothed_lst.append(total / (2 * k + 1))
     return smoothed_lst
-

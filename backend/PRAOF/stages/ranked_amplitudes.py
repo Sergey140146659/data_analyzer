@@ -2,7 +2,7 @@ import numpy as np
 from backend.PRAOF.analytical_functions.envelopes import envelopes
 from backend.PRAOF.analytical_functions.smoothing_funcs import supsmooth
 from backend.PRAOF.graphics.amplitudes import amplitudes
-from backend.PRAOF.graphics.approximation import approximation
+from backend.PRAOF.graphics.approximation import approximation, get_best_approximation_degree
 from backend.PRAOF.graphics.scatter import scatter_plot
 
 
@@ -19,18 +19,18 @@ scatter_plot(x=x, y=points, title="График точек", xlabel='Значе�
 k = 2
 smoothed_points = supsmooth(points, k)
 smoothed_points = supsmooth(smoothed_points, k)
+#get_best_approximation_degree(x, smoothed_points)
+
 scatter_plot(x=x, y=points, x_1=x, y_1=smoothed_points, title="График точек", xlabel='Значения X', ylabel='Значения Y',
              png_name=None)
 
-f_x = approximation(x=x, y=smoothed_points, degree=11, title='Аппроксимация данных', xlabel='Значения X',
+f_x = approximation(x=x, y=smoothed_points, degree=20, title='Аппроксимация данных', xlabel='Значения X',
                     ylabel='Значения Y',
                     png_name=None)
 
 greater_zero = []
 less_zero = []
 for point, approximation_point in zip(points, smoothed_points):
-    # point = i
-    # approximation_point = f_x(point)
     if point < approximation_point:
         less_zero.append(-abs(point - approximation_point))
     else:
@@ -41,11 +41,11 @@ amplitudes(less_zero=less_zero, greater_zero=greater_zero, title="Амплиту
            ylabel='Разница')
 
 envelopes_info = {}
-greater_envelopes = envelopes(x, greater_zero)
+greater_envelopes = envelopes(greater_zero)
 envelopes_info['x_data_greater'] = np.array(x)
 envelopes_info['popt_greater'] = greater_envelopes['popt']
 
-less_envelopes = envelopes(x, less_zero)
+less_envelopes = envelopes(less_zero)
 envelopes_info['x_data_less'] = np.array(x)
 envelopes_info['popt_less'] = less_envelopes['popt']
 amplitudes(less_zero=less_zero, greater_zero=greater_zero, envelopes=envelopes_info, title="Амплитуды значений",
