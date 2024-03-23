@@ -9,5 +9,5 @@ def scatter_plot(x, y, x_1=None, y_1=None, title='title', xlabel='xlabel', ylabe
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     if png_name is not None:
-        plt.savefig(f'{png_name}.png')
+        plt.savefig(png_name)
     plt.show()

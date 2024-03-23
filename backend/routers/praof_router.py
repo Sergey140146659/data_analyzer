@@ -15,19 +15,19 @@ router = APIRouter(
 
 
 @router.post("/praof")
-async def praof(response: Response, obj: dict):
+async def data_processing(response: Response, obj: dict):
     try:
         scatter_plot(x=[i for i in range(len(obj["data"]))], y=obj["data"], title="График точек",
-                     xlabel='Значения X', ylabel='Значения Y', png_name="PRAOF/praof_pics/points.png")
+                     xlabel='Значения X', ylabel='Значения Y', png_name="./PRAOF/praof_pics/points.png")
 
         supsmooth_points = supsmooth(supsmooth(obj["data"], 2), 2)
         scatter_plot(x=[i for i in range(len(obj["data"]))], y=obj["data"],
                      x_1=[i for i in range(len(obj["data"]))], y_1=supsmooth_points, title="График точек",
                      xlabel='Значения X',
                      ylabel='Значения Y',
-                     png_name=f"PRAOF/praof_pics/smoothed_points{2}.png")
+                     png_name=f"./PRAOF/praof_pics/smoothed_points{2}.png")
 
-        best_degree = get_best_approximation_degree(x=[i for i in range(len(obj["data"]))], y=obj["data"], k=2)
+        best_degree = get_best_approximation_degree(x=[i for i in range(len(obj["data"]))], y=supsmooth_points, k=2)
 
         greater_zero = []
         less_zero = []
@@ -51,17 +51,17 @@ async def praof(response: Response, obj: dict):
         envelopes_info['popt_less'] = less_envelopes['popt']
         amplitudes(less_zero=less_zero, greater_zero=greater_zero, envelopes=envelopes_info, title="Амплитуды значений",
                    xlabel='Индекс',
-                   ylabel='Разница', png_name=f"PRAOF/praof_pics/amplitudes_k={2}_degree={best_degree}.png")
-
-        file_path = f"PRAOF/info_praof_k={2}_degree={best_degree}.json"
-        with open(file_path) as file:
-            info = {
-                'points_pic': "PRAOF/praof_pics/points",
-                'supsmooth_points_pic': f"PRAOF/praof_pics/smoothed_points{2}.png",
-                'approximations_pic': f"PRAOF/praof_pics/approximation_k={2}_degree={best_degree}.png",
-                'amplitudes': f"PRAOF/praof_pics/amplitudes_k={2}_degree={best_degree}.png",
-            }
+                   ylabel='Разница', png_name=f"./PRAOF/praof_pics/amplitudes_k={2}_degree={best_degree}.png")
+        info = {
+            'points_pic': "/PRAOF/praof_pics/points.png",
+            'supsmooth_points_pic': f"/PRAOF/praof_pics/smoothed_points{2}.png",
+            'approximations_pic': f"/PRAOF/praof_pics/approximation_k={2}_degree={best_degree}.png",
+            'amplitudes': f"/PRAOF/praof_pics/amplitudes_k={2}_degree={best_degree}.png",
+        }
+        file_path = f"./PRAOF/info_praof_k={2}_degree={best_degree}.json"
+        with open(file_path, 'w') as file:
             json.dump(info, file)
+        return file_path
 
     except Exception as e:
         response.status_code = 500
