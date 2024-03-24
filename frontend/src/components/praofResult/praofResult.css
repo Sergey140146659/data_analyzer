@@ -1,3 +1,9 @@
-.praof__resultImage {
-    width: 800px;
+.praofResult {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.praofResult__image {
+    width: 700px;
 }
