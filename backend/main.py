@@ -10,6 +10,7 @@ app = FastAPI(
 )
 
 app.mount("/static", StaticFiles(directory="static", html=True), name="static")
+app.mount("/PRAOF/praof_pics", StaticFiles(directory="static", html=True), name="praof_pics")
 
 app.include_router(router_def)
 app.include_router(router_praof)
