@@ -14,7 +14,7 @@ router = APIRouter(
 )
 
 
-@router.post("/praof")
+@router.post("/data_processing")
 async def data_processing(response: Response, obj: dict):
     try:
         scatter_plot(x=[i for i in range(len(obj["data"]))], y=obj["data"], title="График точек",
@@ -61,7 +61,7 @@ async def data_processing(response: Response, obj: dict):
         file_path = f"./PRAOF/info_praof_k={2}_degree={best_degree}.json"
         with open(file_path, 'w') as file:
             json.dump(info, file)
-        return file_path
+        return info
 
     except Exception as e:
         response.status_code = 500
