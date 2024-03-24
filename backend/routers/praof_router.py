@@ -25,7 +25,7 @@ async def data_processing(response: Response, obj: dict):
                      x_1=[i for i in range(len(obj["data"]))], y_1=supsmooth_points, title="График точек",
                      xlabel='Значения X',
                      ylabel='Значения Y',
-                     png_name=f"./PRAOF/praof_pics/smoothed_points{2}.png")
+                     png_name=f"praof_pics/smoothed_points{2}.png")
 
         best_degree = get_best_approximation_degree(x=[i for i in range(len(obj["data"]))], y=supsmooth_points, k=2)
 
@@ -51,12 +51,12 @@ async def data_processing(response: Response, obj: dict):
         envelopes_info['popt_less'] = less_envelopes['popt']
         amplitudes(less_zero=less_zero, greater_zero=greater_zero, envelopes=envelopes_info, title="Амплитуды значений",
                    xlabel='Индекс',
-                   ylabel='Разница', png_name=f"./PRAOF/praof_pics/amplitudes_k={2}_degree={best_degree}.png")
+                   ylabel='Разница', png_name=f"praof_pics/amplitudes_k={2}_degree={best_degree}.png")
         info = {
-            'points_pic': "/PRAOF/praof_pics/points.png",
-            'supsmooth_points_pic': f"/PRAOF/praof_pics/smoothed_points{2}.png",
-            'approximations_pic': f"/PRAOF/praof_pics/approximation_k={2}_degree={best_degree}.png",
-            'amplitudes': f"/PRAOF/praof_pics/amplitudes_k={2}_degree={best_degree}.png",
+            'points_pic': "praof_pics/points.png",
+            'supsmooth_points_pic': f"praof_pics/smoothed_points{2}.png",
+            'approximations_pic': f"praof_pics/approximation_k={2}_degree={best_degree}.png",
+            'amplitudes': f"praof_pics/amplitudes_k={2}_degree={best_degree}.png",
         }
         file_path = f"./PRAOF/info_praof_k={2}_degree={best_degree}.json"
         with open(file_path, 'w') as file:

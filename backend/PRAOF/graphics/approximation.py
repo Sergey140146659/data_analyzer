@@ -33,7 +33,7 @@ def get_best_approximation_degree(x, y, k):
     for degree in range(1, 20):
         error = approximation(x, y, degree=degree, title='Аппроксимация данных', xlabel='Значения X',
                               ylabel='Значения Y',
-                              png_name=f"PRAOF/praof_pics/approximation_k={k}_degree={degree}.png")[1]
+                              png_name=f"/praof_pics/approximation_k={k}_degree={degree}.png")[1]
         # print(error, degree)
         if error < min_error and abs(error - min_error) > 0.001:
             min_error = error
