@@ -8,24 +8,26 @@ def model_func(x, c1, a1, c2, a2):
 
 def amplitudes(less_zero, greater_zero, envelopes=None, title='title', xlabel='xlabel',
                ylabel='ylabel', png_name=None, **kwargs):
+    plt.rc('font', size=30)
+    plt.figure(figsize=(20, 15))
     plt.clf()
     greater_zero = sorted(greater_zero, reverse=True)
     less_zero = sorted(less_zero)
-    plt.figure(figsize=(15, 12))
 
     for i in range(len(greater_zero)):
         plt.bar(i, greater_zero[i], width=1.0, color='skyblue')
-        plt.plot(i, greater_zero[i], marker='o', markersize=5, color='blue')
+        plt.plot(i, greater_zero[i], marker='o', markersize=10, color='blue')
 
     for i in range(len(less_zero)):
         plt.bar(i, less_zero[i], width=1.0, color='salmon')
-        plt.plot(i, less_zero[i], marker='o', markersize=5, color='red')
-
-    plt.axhline(0, color='gray', linewidth=0.8)
+        plt.plot(i, less_zero[i], marker='o', markersize=10, color='red')
+    plt.xlim(0, max(len(less_zero), len(greater_zero)) + 1)
+    plt.axhline(0, color='gray', linewidth=0.8, xmin=0, xmax=max(len(less_zero), len(greater_zero)) + 1)
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     plt.title(title)
-    plt.xticks(range(len(greater_zero)))
+
+    # plt.xticks(range(len(greater_zero)))
     if envelopes is not None:
         x_data_greater = envelopes['x_data_greater']
         popt_greater = envelopes['popt_greater']
