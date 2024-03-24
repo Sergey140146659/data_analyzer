@@ -1,12 +1,17 @@
 import json
 
+def get_dict(json_name):
+    with open('info.json', 'r') as file:
+        dictin = json.load(file)
+    return dictin
+
 from backend.first_part.process_data.initial_values import *
 from backend.first_part.graphics.initial_data_show import *
 from backend.first_part.graphics.empirical_distribution_function_show import *
 from backend.first_part.process_data.empirical_distribution_function import *
 from backend.first_part.process_data.empirical_distribution_density import *
 from backend.first_part.graphics.empirical_distribution_density_show import *
-
+from backend.first_part.checking_valid_distr.point_estimation import *
 
 data = [24.7, 24.8, 24.8, 25.4, 25.7, 25.8, 25.7, 26.1, 26.2, 26.2, 26.3, 26.3, 26.4, 26.4, 26.4, 26.5, 26.5, 26.5,
         26.6, 26.7, 26.7, 26.7, 26.8, 26.8, 26.9, 26.9, 27, 27, 27, 27.1, 27.2, 27.2, 27.2,
@@ -30,10 +35,24 @@ get_acc_freqs('info.json')
 with open('info.json', 'r') as file:
     dictin = json.load(file)
 
-emp_dist_func_show('info.json', x_ticks=dictin['middle_points'] + [dictin['middle_points'][-1] + dictin['d']],
-                   y_ticks=dictin['accumulated_frequencies'])
+# emp_dist_func_show('info.json', x_ticks=dictin['middle_points'] + [dictin['middle_points'][-1] + dictin['d']],
+                   #y_ticks=dictin['accumulated_frequencies'])
 
 get_emp_dens('info.json')
 get_border_points('info.json')
 
-emp_dist_func_dens_show('info.json')
+#emp_dist_func_dens_show('info.json')
+
+get_sample_mean('info.json')
+get_sample_var('info.json')
+get_corr_sample_var('info.json')
+get_sample_asymm('info.json')
+get_sample_excess('info.json')
+
+v = get_dict('info.json')
+print(v['sample_mean'])
+print(v['sample_variance'])
+print(v['corrected_sample_variance'])
+print(v['mean_square_deviation'])
+print(v['sample_asymmetry'])
+print(v['sample_excess'])
