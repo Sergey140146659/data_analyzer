@@ -14,10 +14,10 @@ def envelopes(y):
     # Используйте curve_fit для подгонки модели к данным
     popt, pcov = curve_fit(model_func, x_data, y_data, p0=initial_guess, maxfev=10000)
 
-    plt.scatter(x_data, y_data, label='Исходные данные')
-    plt.plot(x_data, model_func(x_data, *popt), label='Подогнанная модель', color='red')
-    plt.legend()
-    plt.show()
+    # plt.scatter(x_data, y_data, label='Исходные данные')
+    # plt.plot(x_data, model_func(x_data, *popt), label='Подогнанная модель', color='red')
+    # plt.legend()
+    # plt.show()
     c1_opt, a1_opt, c2_opt, a2_opt = popt
     return {
         'c1': c1_opt,
