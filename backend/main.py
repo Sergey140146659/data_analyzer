@@ -6,7 +6,7 @@ from routers.default_router import router as router_def
 from routers.praof_router import router as router_praof
 
 app = FastAPI(
-    title="Smart Manual"
+    title="Data Analyzer"
 )
 
 app.mount("/static", StaticFiles(directory="static", html=True), name="static")
