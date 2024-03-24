@@ -3,5 +3,6 @@ __pycache__/
 .idea
 **/venv/
 bert_model/
+frontend/src/praof_pics/*
 
 .env-render

@@ -6,6 +6,8 @@ from sklearn.metrics import mean_squared_error, r2_score
 def approximation(x, y, degree=2, title='title', xlabel='xlabel', ylabel='ylabel', png_name=None, **kwargs):
     if degree == 0:
         return "The approximation"
+    plt.rc('font', size=30)
+    plt.figure(figsize=(20, 15))
     plt.clf()
     # Полиномиальная аппроксимация
     coefficients = np.polyfit(x, y, degree)
@@ -16,7 +18,7 @@ def approximation(x, y, degree=2, title='title', xlabel='xlabel', ylabel='ylabel
     y_new = poly(x_new)
     mse = mean_squared_error(y, poly(x))
 
-    plt.scatter(x, y)
+    plt.scatter(x, y, s=100)
     plt.plot(x_new, y_new, 'r', label=f'Аппроксимация (полином степени {degree})')
     plt.legend()
     plt.xlabel(xlabel)
