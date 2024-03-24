@@ -63,14 +63,11 @@ def emp_dist_func_dens_show(json_name, label='Эмпирическая плот�
 
     plt.title(label)
 
-
-
-
-
     if name is not None:
         plt.savefig(f'{name}.png')
 
     plt.show()
+
 
 def normal_curve_func(json_name, x):
     with open(json_name, 'r') as file:
