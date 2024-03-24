@@ -1,11 +1,16 @@
-import './praofPage.css';
 import AppSideBar from "../../appSideBar/AppSideBar";
+import Form from "../../form/Form";
+
+import './praofPage.css';
+
 
 const PraofPage = () => {
-    return <div className="pageContent">
+    return (
+        <div className="pageContent">
             <AppSideBar/>
-        <h1>Я страница Сергей Щербаков!</h1>
-    </div>
+            <Form labelName="Входные данные" />
+        </div>
+    );
 }
 
 export default PraofPage;
