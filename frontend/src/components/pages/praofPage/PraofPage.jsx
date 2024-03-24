@@ -9,16 +9,18 @@ import './praofPage.css';
 
 const PraofPage = () => {
     const [curData, setCurData] = useState(
-        {amplitudes: "/PRAOF/praof_pics/85Fn0HsoIuM.jpg",
-            approximations_pic: "/PRAOF/praof_pics/EQug5D207ck.jpg",
-            points_pic: "/PRAOF/praof_pics/hESTmzVfIHQ.jpg",
-            supsmooth_points_pic: "/PRAOF/praof_pics/YhsdQuC2ymA.jpg"})
+        {amplitudes: "praof_pics/85Fn0HsoIuM.jpg",
+            approximations_pic: "praof_pics/EQug5D207ck.jpg",
+            points_pic: "praof_pics/hESTmzVfIHQ.jpg",
+            supsmooth_points_pic: "praof_pics/YhsdQuC2ymA.jpg"})
 
     return (
         <div className="pageContent">
             <AppSideBar/>
-            <Form labelName="Входные данные" setCurData={setCurData} />
-            <PraofResult objImages={curData} />
+            <div className="praofContent">
+                <Form labelName="Входные данные" setCurData={setCurData} />
+                <PraofResult objImages={curData} />
+            </div>
         </div>
     );
 }

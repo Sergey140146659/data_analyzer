@@ -18,14 +18,14 @@ router = APIRouter(
 async def data_processing(response: Response, obj: dict):
     try:
         scatter_plot(x=[i for i in range(len(obj["data"]))], y=obj["data"], title="График точек",
-                     xlabel='Значения X', ylabel='Значения Y', png_name="./PRAOF/praof_pics/points.png")
+                     xlabel='Значения X', ylabel='Значения Y', png_name="../frontend/src/praof_pics/points.png")
 
         supsmooth_points = supsmooth(supsmooth(obj["data"], 2), 2)
         scatter_plot(x=[i for i in range(len(obj["data"]))], y=obj["data"],
                      x_1=[i for i in range(len(obj["data"]))], y_1=supsmooth_points, title="График точек",
                      xlabel='Значения X',
                      ylabel='Значения Y',
-                     png_name=f"praof_pics/smoothed_points{2}.png")
+                     png_name=f"../frontend/src/praof_pics/smoothed_points{2}.png")
 
         best_degree = get_best_approximation_degree(x=[i for i in range(len(obj["data"]))], y=supsmooth_points, k=2)
 
@@ -51,7 +51,7 @@ async def data_processing(response: Response, obj: dict):
         envelopes_info['popt_less'] = less_envelopes['popt']
         amplitudes(less_zero=less_zero, greater_zero=greater_zero, envelopes=envelopes_info, title="Амплитуды значений",
                    xlabel='Индекс',
-                   ylabel='Разница', png_name=f"praof_pics/amplitudes_k={2}_degree={best_degree}.png")
+                   ylabel='Разница', png_name=f"../frontend/src/praof_pics/amplitudes_k={2}_degree={best_degree}.png")
         info = {
             'points_pic': "praof_pics/points.png",
             'supsmooth_points_pic': f"praof_pics/smoothed_points{2}.png",
