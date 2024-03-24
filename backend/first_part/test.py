@@ -17,6 +17,12 @@ data = [24.7, 24.8, 24.8, 25.4, 25.7, 25.8, 25.7, 26.1, 26.2, 26.2, 26.3, 26.3, 
         26.6, 26.7, 26.7, 26.7, 26.8, 26.8, 26.9, 26.9, 27, 27, 27, 27.1, 27.2, 27.2, 27.2,
         27.3, 27.4, 27.5, 27.5, 27.6, 27.6, 27.6, 27.6, 27.6, 27.7, 27.7, 27.8, 27.9, 28.2, 28.6, 28.7, 28.9]
 
+data = [10.9, 10.9, 11.0, 11.2, 11.8, 11.8, 12.7, 12.9, 12.4, 14.2,
+14.8, 14.8, 15.4, 14.6, 14.1, 13.3, 12.6, 11.1, 11.2, 11.6,
+11.6, 11.5, 11.2, 12.9, 14.1, 14.0, 12.5, 12.5, 10.8, 10.9,
+11.3, 11.4, 11.0, 11.9, 12.4, 12.9, 13.0, 13.5, 14.3, 14.6,
+14.8, 14.5, 14.0, 13.2, 12.2, 12.1, 12.2, 11.8, 11.2, 10.9]
+
 with open('info.json', 'w') as file:
     json.dump({'data': data, 'data_sorted': sorted(data), 'k': -1}, file)
 
@@ -41,7 +47,7 @@ with open('info.json', 'r') as file:
 get_emp_dens('info.json')
 get_border_points('info.json')
 
-#emp_dist_func_dens_show('info.json')
+emp_dist_func_dens_show('info.json')
 
 get_sample_mean('info.json')
 get_sample_var('info.json')
@@ -56,3 +62,8 @@ print(v['corrected_sample_variance'])
 print(v['mean_square_deviation'])
 print(v['sample_asymmetry'])
 print(v['sample_excess'])
+
+
+emp_dist_func_dens_show('info.json', distribution_curve='normal')
+emp_dist_func_dens_show('info.json', distribution_curve='exp')
+emp_dist_func_dens_show('info.json', distribution_curve='lin')
