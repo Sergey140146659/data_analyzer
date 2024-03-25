@@ -4,6 +4,7 @@ from starlette.middleware.cors import CORSMiddleware
 
 from routers.default_router import router as router_def
 from routers.praof_router import router as router_praof
+from routers.first_part_router import router as router_first_part
 
 app = FastAPI(
     title="Data Analyzer"
@@ -14,6 +15,7 @@ app.mount("/PRAOF/praof_pics", StaticFiles(directory="static", html=True), name=
 
 app.include_router(router_def)
 app.include_router(router_praof)
+app.include_router(router_first_part)
 
 origins = [
     "http://localhost:8000",
