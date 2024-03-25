@@ -1,10 +1,22 @@
+.sideBar__wrapper {
+    min-width: 230px;
+}
+
 .sideBar {
-    width: 200px;
-    padding: 20px;
+    min-width: 230px;
+    padding: 50px 40px;
+    background-color: #fff;
+    height: 100vh;
+    position: fixed;
 }
 
 nav {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    font-size: 1.1em;
+}
+
+nav a {
+    color: black;
 }

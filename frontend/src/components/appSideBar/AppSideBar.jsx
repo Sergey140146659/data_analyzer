@@ -2,12 +2,15 @@ import { NavLink } from 'react-router-dom';
 import './appSideBar.css';
 
 const AppSideBar = () => {
-    return <div className="sideBar">
-        <nav>
-            <NavLink to="/">Main</NavLink>
-            <NavLink to="/praof">PRAOF</NavLink>
-        </nav>
-    </div>
+    return (
+        <div className="sideBar__wrapper">
+            <div className="sideBar">
+                <nav>
+                    <NavLink to="/">Main</NavLink>
+                    <NavLink to="/praof">ПРАОФ</NavLink>
+                </nav>
+            </div>
+        </div>);
 }
 
 export default AppSideBar;
