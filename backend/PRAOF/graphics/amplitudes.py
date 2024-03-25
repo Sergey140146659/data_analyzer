@@ -31,10 +31,15 @@ def amplitudes(less_zero, greater_zero, envelopes=None, title='title', xlabel='x
     if envelopes is not None:
         x_data_greater = envelopes['x_data_greater']
         popt_greater = envelopes['popt_greater']
-        plt.plot(x_data_greater, model_func(x_data_greater, *popt_greater), color='red')
+        plt.plot(x_data_greater, model_func(x_data_greater, *popt_greater), color='red',
+                 label=r'$y = c1 \cdot e^{a1 \cdot x} + c2 \cdot e^{a2 \cdot x}$')
 
         x_data_less = envelopes['x_data_less']
         popt_less = envelopes['popt_less']
-        plt.plot(x_data_less, model_func(x_data_less, *popt_less), color='red')
+        plt.plot(x_data_less, model_func(x_data_less, *popt_less), color='red',
+                 label=r'$y = c1 \cdot e^{a1 \cdot x} + c2 \cdot e^{a2 \cdot x}$')
+
+        plt.legend()
+
     if png_name is not None:
         plt.savefig(png_name)

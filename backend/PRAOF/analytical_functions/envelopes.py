@@ -25,5 +25,4 @@ def envelopes(y):
         'a1': a1_opt,
         'a2': a2_opt,
         'popt': popt
-
     }
