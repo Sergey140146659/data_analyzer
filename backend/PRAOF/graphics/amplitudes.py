@@ -1,3 +1,5 @@
+from copy import copy
+
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -32,12 +34,22 @@ def amplitudes(less_zero, greater_zero, envelopes=None, title='title', xlabel='x
         x_data_greater = envelopes['x_data_greater']
         popt_greater = envelopes['popt_greater']
         plt.plot(x_data_greater, model_func(x_data_greater, *popt_greater), color='red',
-                 label=r'$y = c1 \cdot e^{a1 \cdot x} + c2 \cdot e^{a2 \cdot x}$')
+                 label=r'$y = {0:.2f} \cdot e^{{ {1:.2f} \cdot x}} + {2:.2f} \cdot e^{{ {3:.2f} \cdot x}}$'.format(
+                     *popt_greater))
 
         x_data_less = envelopes['x_data_less']
         popt_less = envelopes['popt_less']
-        plt.plot(x_data_less, model_func(x_data_less, *popt_less), color='red',
-                 label=r'$y = c1 \cdot e^{a1 \cdot x} + c2 \cdot e^{a2 \cdot x}$')
+        if popt_less[2] > 0:
+            plt.plot(x_data_less, model_func(x_data_less, *popt_less), color='red',
+                     label=r'$y = {0:.2f} \cdot e^{{ {1:.2f} \cdot x}} + {2:.2f} \cdot e^{{ {3:.2f} \cdot x}}$'.format(
+                         *popt_less))
+        else:
+            popt_less_2 = copy(popt_less)
+            popt_less[2] *= -1
+
+            plt.plot(x_data_less, model_func(x_data_less, *popt_less_2), color='red',
+                     label=r'$y = {0:.2f} \cdot e^{{ {1:.2f} \cdot x}} - {2:.2f} \cdot e^{{ {3:.2f} \cdot x}}$'.format(
+                         *popt_less))
 
         plt.legend()
 
