@@ -2,17 +2,20 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from starlette.middleware.cors import CORSMiddleware
 
-from routers.pages_router import router as router_page
 from routers.default_router import router as router_def
+from routers.praof_router import router as router_praof
+from routers.first_part_router import router as router_first_part
 
 app = FastAPI(
-    title="Smart Manual"
+    title="Data Analyzer"
 )
 
 app.mount("/static", StaticFiles(directory="static", html=True), name="static")
+app.mount("/PRAOF/praof_pics", StaticFiles(directory="static", html=True), name="praof_pics")
 
-app.include_router(router_page)
 app.include_router(router_def)
+app.include_router(router_praof)
+app.include_router(router_first_part)
 
 origins = [
     "http://localhost:8000",
