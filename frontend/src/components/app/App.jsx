@@ -1,6 +1,9 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
 import MainPage from "../pages/mainPage/MainPage";
 import PraofPage from "../pages/praofPage/PraofPage";
+
+import './app.css';
 
 function App() {
   return (

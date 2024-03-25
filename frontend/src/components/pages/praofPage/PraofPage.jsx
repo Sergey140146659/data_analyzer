@@ -18,6 +18,7 @@ const PraofPage = () => {
         <div className="pageContent">
             <AppSideBar/>
             <div className="praofContent">
+                <h1 className="pageTitle">Последовательность ранжирования амплитуд относительно флуктуации</h1>
                 <Form labelName="Входные данные" setCurData={setCurData} />
                 <PraofResult objImages={curData} />
             </div>
