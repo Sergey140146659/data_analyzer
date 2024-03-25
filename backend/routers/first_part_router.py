@@ -28,7 +28,7 @@ async def data_processing(response: Response, obj: dict):
             info_dict = json.load(file)
 
         return info_dict
-    
+
     except Exception as e:
         response.status_code = 500
         return {"status": "error", "message": str(e)}

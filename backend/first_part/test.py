@@ -66,10 +66,10 @@ print(v['mean_square_deviation'])
 print(v['sample_asymmetry'])
 print(v['sample_excess'])
 
-''''
+
 emp_dist_func_dens_show('info.json', distribution_curve='normal')
 emp_dist_func_dens_show('info.json', distribution_curve='exp')
-emp_dist_func_dens_show('info.json', distribution_curve='lin') '''
+emp_dist_func_dens_show('info.json', distribution_curve='lin') 
 
 get_theor_freqs('info.json','normal')
 unite_freqs('info.json')
@@ -93,10 +93,16 @@ print('chi',get_chi_squared('info.json'))
 print()
 get_theor_freqs('info.json', 'lin')
 unite_freqs('info.json')
-with open('info.json', 'r') as file:
-    dictin = json.load(file)
 
 print(dictin['united_frequencies'])
 print(dictin['united_theoretical_frequencies'])
 
 print('chi',get_chi_squared('info.json'))
+
+get_statistics('info.json')
+
+with open('info.json', 'r') as file:
+    dictin = json.load(file)
+
+print(dictin['theoretical_distribution_function'])
+print(dictin['kolmogorov_statistics'])
