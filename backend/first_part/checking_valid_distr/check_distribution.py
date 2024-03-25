@@ -61,7 +61,7 @@ def get_statistics(json_name, distr = 'normal'):
     # parameters: 'normal', 'exp', 'lin'
     with open(json_name, 'r') as file:
         info = json.load(file)
-    fn = info['accumulated_frequencies']
+    fn = [0] + info['accumulated_frequencies']
     a = info['border_points']
     x = info['sample_mean']
     s = info['mean_square_deviation']

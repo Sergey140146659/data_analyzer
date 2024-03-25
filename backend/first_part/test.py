@@ -42,10 +42,11 @@ get_middle_points('info.json')
 
 get_acc_freqs('info.json')
 
+with open('info.json', 'r') as file:
+    dictin = json.load(file)
 
-
-# emp_dist_func_show('info.json', x_ticks=dictin['middle_points'] + [dictin['middle_points'][-1] + dictin['d']],
-                   #y_ticks=dictin['accumulated_frequencies'])
+emp_dist_func_show('info.json', x_ticks=dictin['middle_points'] + [dictin['middle_points'][-1] + dictin['d']],
+                   y_ticks=dictin['accumulated_frequencies'])
 
 get_emp_dens('info.json')
 get_border_points('info.json')
@@ -69,7 +70,7 @@ print(v['sample_excess'])
 
 emp_dist_func_dens_show('info.json', distribution_curve='normal')
 emp_dist_func_dens_show('info.json', distribution_curve='exp')
-emp_dist_func_dens_show('info.json', distribution_curve='lin') 
+emp_dist_func_dens_show('info.json', distribution_curve='lin')
 
 get_theor_freqs('info.json','normal')
 unite_freqs('info.json')
