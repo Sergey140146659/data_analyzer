@@ -1,0 +1,13 @@
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+textarea {
+    width: 350px;
+}
+
+.submitButton {
+    width: fit-content;
+}

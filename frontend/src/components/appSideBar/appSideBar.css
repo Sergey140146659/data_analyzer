@@ -1,0 +1,10 @@
+.sideBar {
+    width: 200px;
+    padding: 20px;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
