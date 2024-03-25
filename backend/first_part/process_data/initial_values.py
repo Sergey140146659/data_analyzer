@@ -1,19 +1,24 @@
 import json
 
+def set_initial_state(json_path, init_dict):
+    init_dict['data_sorted'] = sorted(init_dict['data'])
+    with open(json_path, 'w') as file:
+        json.dump(init_dict, file)
 
-def fst_set_values(json_name):  # получение первых констант на основе набора данных
+def fst_set_values(json_name, k = -1):  # получение первых констант на основе набора данных
     with open(json_name, 'r') as file:
         info = json.load(file)
     info['n'] = len(info['data'])
     info['x_min'] = min(info['data'])
     info['x_max'] = max(info['data'])
     info['R'] = info['x_max'] - info['x_min']
-    if info['k'] == -1:
+    if k == -1:
         info['k'] = int(info['n'] ** 0.5)
+    else:
+        info['k'] = k
     info['d'] = info['R'] / info['k']
     with open(json_name, 'w') as file:
         json.dump(info, file)
-    return info
 
 
 def get_intervals(json_name): # получение границ интервалов
