@@ -12,7 +12,6 @@ const useMainService = () => {
             if (!response.ok) {
                 throw new Error('Ошибка HTTP: ' + response.status);
             }
-
             return await response.json();
         } catch (error) {
             console.error('Произошла ошибка:', error);

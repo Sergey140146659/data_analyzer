@@ -6,11 +6,11 @@ const MainForm = ({setCurData}) => {
     const {postData} = useMainService();
     const onSubmit = async (e) => {
         e.preventDefault();
-        console.log('asd');
         const data = e.target.querySelector("textarea").value
             .split(", ")
             .map(str => Number(str));
         const k = Number(e.target.querySelector("input[type='number']").value);
+        console.log(await postData(data, k));
         setCurData(await postData(data, k));
     }
     return (
