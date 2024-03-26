@@ -1,7 +1,7 @@
 from scipy.integrate import quad
 import math
 import json
-from backend.first_part.checking_valid_distr.uniting_freqs import *
+from first_part.checking_valid_distr.uniting_freqs import *
 
 
 def laplas(x):
