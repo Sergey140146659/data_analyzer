@@ -12,7 +12,7 @@ def fst_set_values(json_name,k):  # получение первых конста
     info['x_min'] = min(info['data'])
     info['x_max'] = max(info['data'])
     info['R'] = info['x_max'] - info['x_min']
-    if k == -1:
+    if k == 0:
         info['k'] = int(info['n'] ** 0.5)
     else:
         info['k'] = k
