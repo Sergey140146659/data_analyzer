@@ -10,7 +10,7 @@ def laplas(x):
     return quad(func,0,x)[0]/(2*math.pi)**0.5
 
 
-def get_theor_freqs(json_name, distribution):
+def get_theor_freqs(json_name, distribution='normal'):
 
     # parameters for distribution: 'normal', 'exp', 'lin'
 
@@ -40,6 +40,8 @@ def get_theor_freqs(json_name, distribution):
         for i in range(1,len(a)):
             theor_freqs.append((a[i] - a[i-1])/(ak - a0))
 
+    info['theoretical_probabilities'] = theor_freqs[:]
+
     info['theoretical_frequencies'] = [theor_freqs[i] * info['n'] for i in range(len(theor_freqs))]
 
     with open(json_name, 'w') as file:
@@ -54,6 +56,8 @@ def get_chi_squared(json_name):
     theor = info['united_theoretical_frequencies']
 
     chi = sum([(emp[i] - theor[i])**2/theor[i] for i in range(len(emp))])
+
+    info['chi_squared'] = chi
 
     return chi
 

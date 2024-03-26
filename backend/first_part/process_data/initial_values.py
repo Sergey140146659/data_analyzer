@@ -5,7 +5,7 @@ def set_initial_state(json_path, init_dict):
     with open(json_path, 'w') as file:
         json.dump(init_dict, file)
 
-def fst_set_values(json_name, k = -1):  # получение первых констант на основе набора данных
+def fst_set_values(json_name, k):  # получение первых констант на основе набора данных
     with open(json_name, 'r') as file:
         info = json.load(file)
     info['n'] = len(info['data'])

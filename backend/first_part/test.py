@@ -45,8 +45,7 @@ get_acc_freqs('info.json')
 with open('info.json', 'r') as file:
     dictin = json.load(file)
 
-emp_dist_func_show('info.json', x_ticks=dictin['middle_points'] + [dictin['middle_points'][-1] + dictin['d']],
-                   y_ticks=dictin['accumulated_frequencies'])
+emp_dist_func_show('info.json')
 
 get_emp_dens('info.json')
 get_border_points('info.json')

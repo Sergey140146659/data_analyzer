@@ -9,7 +9,11 @@ def emp_dist_func_dens_show(json_name, label='Эмпирическая плот�
                        y_ticks=None, y_label=r'$f_{\mathrm{n}}^{\mathrm{*}}(x)$', distribution_curve=None,
                        name=None):  # построение эмпирической плотности распределения
 
-# parameters for distribution curve: 'normal', 'exp', 'lin', None (without any curve)
+# parameters for distribution_curve: 'normal', 'exp', 'lin', None (without any curve)
+
+    plt.rc('font', size=30)
+    plt.figure(figsize=(20, 15))
+    plt.clf()
 
     with open(json_name, 'r') as file:
         info = json.load(file)
@@ -49,17 +53,21 @@ def emp_dist_func_dens_show(json_name, label='Эмпирическая плот�
 
     if x_ticks is not None:
         plt.xticks([round(i,2) for i in x_ticks])
+    else:
+        plt.xticks(x)
 
     if y_ticks is not None:
         plt.yticks([round(i,2) for i in y_ticks])
+    else:
+        plt.yticks(y)
 
     if distribution_curve is not None:
         x_ax, y_ax, x_ax_curve, y_ax_curve = get_curve()
-        plt.plot(x_ax,y_ax,'.', color = 'lightseagreen', markersize = 8)
+        plt.plot(x_ax, y_ax,'.', color = 'lightseagreen', markersize = 8)
         plt.plot(x_ax_curve, y_ax_curve, linestyle='--', color='lightseagreen')
 
-    plt.ylabel(y_label, fontsize=14)
-    plt.xlabel(x_label, fontsize=14)
+    plt.ylabel(y_label, fontsize=30)
+    plt.xlabel(x_label, fontsize=30)
 
     plt.title(label)
 

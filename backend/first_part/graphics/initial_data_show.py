@@ -2,6 +2,11 @@ from matplotlib import pyplot as plt
 
 
 def show_points(data, label='', marker='vr', x_ticks=None, x_label='', y_ticks=None, y_label='', name=None): # график точек
+
+    plt.rc('font', size=30)
+    plt.figure(figsize=(20, 15))
+    plt.clf()
+
     x_axis = [i for i in range(len( data))]
     y_axis = data[:]
     plt.plot(x_axis, y_axis, marker)
