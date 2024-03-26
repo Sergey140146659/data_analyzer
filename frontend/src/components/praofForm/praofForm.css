@@ -9,7 +9,6 @@ form {
     font-size: 1.3em;
 }
 
-
 textarea {
     width: 500px;
     height: 200px;
@@ -20,6 +19,7 @@ textarea {
 
 textarea:focus {
     outline: 1px solid black;
+    border-color: #000;
 }
 
 .submitButton {
@@ -30,4 +30,5 @@ textarea:focus {
     border: none;
     padding: 6px 30px;
     cursor: pointer;
+    margin-top: 10px;
 }

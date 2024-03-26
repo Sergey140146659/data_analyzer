@@ -6,7 +6,7 @@ const AppSideBar = () => {
         <div className="sideBar__wrapper">
             <div className="sideBar">
                 <nav>
-                    <NavLink to="/">Main</NavLink>
+                    <NavLink to="/">ПОСД</NavLink>
                     <NavLink to="/praof">ПРАОФ</NavLink>
                 </nav>
             </div>

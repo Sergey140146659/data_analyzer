@@ -1,9 +1,23 @@
+import {useState} from "react";
+
 import AppSideBar from "../../appSideBar/AppSideBar";
+import MainForm from "../../mainForm/MainForm";
+
+
 import './mainPage.css';
+
 const MainPage = () => {
+    const [curData, setCurData] = useState(
+        {})
+
+
     return <div className="pageContent">
             <AppSideBar/>
-        <h1>Я страница Анастасия Филимонова!</h1>
+        <div className="mainContent">
+            <h1 className="pageTitle">Первичная обработка статистических данных</h1>
+            <MainForm setCurData={setCurData} />
+        </div>
+
     </div>
 }
 

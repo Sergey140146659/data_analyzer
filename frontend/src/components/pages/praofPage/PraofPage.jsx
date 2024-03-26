@@ -1,7 +1,7 @@
 import {useState} from "react";
 
 import AppSideBar from "../../appSideBar/AppSideBar";
-import Form from "../../form/Form";
+import PraofForm from "../../praofForm/PraofForm";
 import PraofResult from "../../praofResult/PraofResult";
 
 import './praofPage.css';
@@ -19,7 +19,7 @@ const PraofPage = () => {
             <AppSideBar/>
             <div className="praofContent">
                 <h1 className="pageTitle">Последовательность ранжирования амплитуд относительно флуктуации</h1>
-                <Form labelName="Входные данные" setCurData={setCurData} />
+                <PraofForm setCurData={setCurData} />
                 <PraofResult objImages={curData} />
             </div>
         </div>
