@@ -25,7 +25,6 @@ async def data_processing(response: Response, obj: dict):
         get_acc_freqs(json_path)
         get_emp_dens(json_path)
         get_border_points(json_path)
-        # получение точечных статистических оценок
 
         get_sample_mean(json_path)
         get_sample_var(json_path)
