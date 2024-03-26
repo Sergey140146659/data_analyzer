@@ -22,9 +22,9 @@ def emp_dist_func_show(json_name, label='Эмпирическая функция
     y_axis = acc_freqs + [acc_freqs[-1]]
 
     for i in range(len(x_axis)):
-        plt.plot([x_axis[i]] * 2, [0, y_axis[i]], linestyle='--', color='grey')
+        plt.plot([x_axis[i]] * 2, [0, y_axis[i]], linestyle='--', color='grey', linewidth=4, dashes=(6, 5))
     for i in range(len(acc_freqs)):
-        plt.plot([x_axis[i], x_axis[i + 1]], [y_axis[i]] * 2, marker='<', markevery=[0], color='black')
+        plt.plot([x_axis[i], x_axis[i + 1]], [y_axis[i]] * 2, marker='<', markersize = 25, markevery=[0], color='black', linewidth=4)
 
     plt.title(label)
     plt.ylabel(y_label, fontsize=30)
@@ -33,13 +33,14 @@ def emp_dist_func_show(json_name, label='Эмпирическая функция
     if x_ticks is not None:
         plt.xticks([round(i, 2) for i in x_ticks])
     else:
-        plt.xticks(x_axis)
+        plt.xticks([round(i,2) for i in x_axis])
     if y_ticks is not None:
         plt.yticks([round(i, 2) for i in y_ticks])
     else:
-        plt.yticks(y_axis)
+        plt.yticks([round(i,2) for i in y_axis])
 
     if name is not None:
-        plt.savefig(f'{name}.png')
-
-    plt.show()
+        plt.savefig(f'../frontend/src/first_part_pics/{name}.png')
+    info[name] = f'first_part_pics/{name}.png'
+    with open(json_name, 'w') as file:
+        json.dump(info, file)

@@ -39,32 +39,32 @@ def emp_dist_func_dens_show(json_name, label='Эмпирическая плот�
     x_vert = [border_steps[0]] + [border_steps[i] for i in range(1, len(border_steps) - 1) for j in range(2)] + [border_steps[-1]]
 
     for i in range(len(y_vert)):
-        plt.plot([x_vert[i]] * 2, [0, y_vert[i]], color='grey')
+        plt.plot([x_vert[i]] * 2, [0, y_vert[i]], color='grey', linewidth=4)
 
     y_hor = emp_dens[:]
     x_hor = x_vert[:]
 
     for i in range(len(y_hor)):
-        plt.plot([x_hor[i * 2], x_hor[i * 2 + 1]], [y_hor[i], y_hor[i]], color='grey')
+        plt.plot([x_hor[i * 2], x_hor[i * 2 + 1]], [y_hor[i], y_hor[i]], color='grey', linewidth=4)
 
     x = info['middle_points'][:]
     y = emp_dens[:]
-    plt.plot(x, y, color='black')
+    plt.plot(x, y, color='black', linewidth=4)
 
     if x_ticks is not None:
         plt.xticks([round(i,2) for i in x_ticks])
     else:
-        plt.xticks(x)
+        plt.xticks([round(i,2) for i in x])
 
     if y_ticks is not None:
         plt.yticks([round(i,2) for i in y_ticks])
     else:
-        plt.yticks(y)
+        plt.yticks([round(i,2) for i in y])
 
     if distribution_curve is not None:
         x_ax, y_ax, x_ax_curve, y_ax_curve = get_curve()
-        plt.plot(x_ax, y_ax,'.', color = 'lightseagreen', markersize = 8)
-        plt.plot(x_ax_curve, y_ax_curve, linestyle='--', color='lightseagreen')
+        plt.plot(x_ax, y_ax,'.', color = 'lightseagreen', markersize = 25)
+        plt.plot(x_ax_curve, y_ax_curve, linestyle='--', color='lightseagreen', linewidth=4, dashes=(6, 5))
 
     plt.ylabel(y_label, fontsize=30)
     plt.xlabel(x_label, fontsize=30)
@@ -72,9 +72,10 @@ def emp_dist_func_dens_show(json_name, label='Эмпирическая плот�
     plt.title(label)
 
     if name is not None:
-        plt.savefig(f'{name}.png')
-
-    plt.show()
+        plt.savefig(f'../frontend/src/first_part_pics/{name}.png')
+    info[name] = f'first_part_pics/{name}.png'
+    with open(json_name, 'w') as file:
+        json.dump(info, file)
 
 
 def normal_curve_func(json_name, x):
