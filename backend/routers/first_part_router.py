@@ -26,6 +26,16 @@ async def data_processing(response: Response, obj: dict):
         get_emp_dens(json_path)
         get_border_points(json_path)
 
+        get_sample_mean(json_path)
+        get_sample_var(json_path)
+        get_corr_sample_var(json_path)
+        get_sample_asymm(json_path)
+        get_sample_excess(json_path)
+
+        get_theor_freqs(json_path)
+        unite_freqs(json_path)
+        get_chi_squared(json_path)
+        get_statistics(json_path)
 
         with open(json_path, 'r') as file:
             info_dict = json.load(file)
