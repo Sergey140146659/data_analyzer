@@ -45,16 +45,23 @@ async def data_processing(response: Response, obj: dict):
         emp_dist_func_dens_show(json_path, distribution_curve='lin', name='emp_density_lin')
         emp_dist_func_dens_show(json_path, distribution_curve='exp', name='emp_density_exp')
 
-        get_theor_freqs(json_path)
+        get_theor_freqs(json_path,distribution='normal')
+        get_theor_freqs(json_path, distribution='exp')
+        get_theor_freqs(json_path, distribution='lin')
         unite_freqs(json_path)
-        get_chi_squared(json_path)
-        get_statistics(json_path)
+        get_chi_squared(json_path,distr='normal')
+        get_chi_squared(json_path, distr='exp')
+        get_chi_squared(json_path, distr='lin')
+        get_statistics(json_path,distr = 'normal')
+        get_statistics(json_path, distr='exp')
+        get_statistics(json_path, distr='lin')
 
 
         with open(json_path, 'r') as file:
             info_dict = json.load(file)
 
-        return info_dict
+        rounded_dict = round_dict(info_dict)
+        return rounded_dict
 
     except Exception as e:
         response.status_code = 500

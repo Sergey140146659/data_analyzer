@@ -1,5 +1,28 @@
 import json
 
+def round_dict(init_dict):
+    answer = []
+    for x in init_dict.items():
+        if type(x[1]) is int:
+            answer.append(x)
+        elif type(x[1]) is float:
+            answer.append((x[0], round(x[1],2)))
+        elif type(x[1]) is str:
+            answer.append(x)
+        elif type(x[1]) is list:
+            add = []
+            for y in x[1]:
+                if type(y) is int:
+                    add.append(y)
+                elif type(y) is float:
+                    add.append(round(y,2))
+                elif type(y) is list:
+                    add.append([round(y[0],2),round(y[1],2)])
+            answer.append((x[0],add))
+    return dict(answer)
+
+
+
 def set_initial_state(json_path, init_dict):
     init_dict['data_sorted'] = sorted(init_dict['data'])
     with open(json_path, 'w') as file:
