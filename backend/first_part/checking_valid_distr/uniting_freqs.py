@@ -54,10 +54,11 @@ def unite_freqs(json_name, to_unite=None):
             result_th_freqs_e.append(current_th_sum_e)
             result_th_freqs_l.append(current_th_sum_l)
 
-        frequencies = result_freqs[:]
-        theor_frequencies_n = result_th_freqs_n[:]
-        theor_frequencies_l = result_th_freqs_l[:]
-        theor_frequencies_e = result_th_freqs_e[:]
+        if frequencies[-1] < min_freq_value:
+            frequencies = result_freqs[:-2] + [sum(result_freqs[-2:])]
+            theor_frequencies_n = result_th_freqs_n[:-2] + [sum(result_th_freqs_n[-2:])]
+            theor_frequencies_l = result_th_freqs_l[:-2] + [sum(result_th_freqs_l[-2:])]
+            theor_frequencies_e = result_th_freqs_e[:-2] + [sum(result_th_freqs_e[-2:])]
     '''else:
         result_freqs = [0 for i in range(len(frequencies))]
         result_th_freqs = [0 for i in range(len(theor_frequencies))]

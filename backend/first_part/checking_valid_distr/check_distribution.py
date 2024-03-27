@@ -36,7 +36,7 @@ def get_theor_freqs(json_name, distribution='normal'):
 
         lambd = 1/x
         for i in range(1,len(a)):
-            theor_freqs.append(pow(math.e, - lambd * a[i]) - pow(math.e, - lambd * a[i-1]))
+            theor_freqs.append(pow(math.e, - lambd * a[i-1]) - pow(math.e, - lambd * a[i]))
 
         info['theoretical_probabilities_exp'] = theor_freqs[:]
 
@@ -125,7 +125,6 @@ def get_statistics(json_name, distr = 'normal'):
         stat = info['n'] ** 0.5 * mx
 
         info['kolmogorov_statistics_lin'] = stat
-
 
     with open(json_name,'w') as file:
         json.dump(info,file)
