@@ -43,8 +43,7 @@ const MainResult = ({dataObj}) => {
                     <p className="data">
                         {dataObj.intervals.map((item, index, arr) =>
                             <span key={index}>
-                                I<sub>{index}</sub>
-                                = [{item[0]}, {item[1]}){index !== arr.length - 1 ? "," : ""}
+                                I<sub>{index}</sub> = [{item[0]}, {item[1]}){index !== arr.length - 1 ? "," : ""}
                             </span>
                         )}
                     </p>
