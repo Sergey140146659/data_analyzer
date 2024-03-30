@@ -56,6 +56,52 @@ const MainResult = ({dataObj}) => {
                         )}
                     </p>
                 </div>
+                <div className="mainResult__item">
+                    <p>Частоты интервального ряда</p>
+                    <p className="data">
+                        {dataObj.interval_frequencies.map((item, index, arr) =>
+                            <span key={index}>
+                                p<sub>{index}</sub>* = {item}{index !== arr.length - 1 ? "," : ""}
+                            </span>
+                        )}
+                    </p>
+                </div>
+                <div className="mainResult__item">
+                    <p>Середины интервалов</p>
+                    <p className="data">
+                        {dataObj.interval_frequencies.map((item, index, arr) =>
+                            <span key={index}>
+                                a̅<sub>{index}</sub> = {item}{index !== arr.length - 1 ? "," : ""}
+                            </span>
+                        )}
+                    </p>
+                </div>
+            </div>
+            <div className="mainResult__block">
+                <h2 className="mainResult__blockTitle">Построение эмпирической функции распределения</h2>
+                <div className="mainResult__item">
+                    <p>Накопленные частоты</p>
+                    <p className="data">
+                        {dataObj.accumulated_frequencies.map((item, index, arr) =>
+                            <span key={index}>
+                                z<sub>{index}</sub> = {item}{index !== arr.length - 1 ? "," : ""}
+                            </span>
+                        )}
+                    </p>
+                </div>
+            </div>
+            <div className="mainResult__block">
+                <h2 className="mainResult__blockTitle">Построение эмпирической плотности распределения</h2>
+                <div className="mainResult__item">
+                    <p>Эмпирическая плотность распределения</p>
+                    <p className="data">
+                        {dataObj.empirical_density.map((item, index, arr) =>
+                            <span key={index}>
+                                ƒ<sub>{index}</sub>* = {item}{index !== arr.length - 1 ? "," : ""}
+                            </span>
+                        )}
+                    </p>
+                </div>
             </div>
         </div>
     )
