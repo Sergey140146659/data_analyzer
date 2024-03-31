@@ -61,6 +61,7 @@ async def data_processing(response: Response, obj: dict):
             info_dict = json.load(file)
 
         rounded_dict = round_dict(info_dict)
+
         return rounded_dict
 
     except Exception as e:
