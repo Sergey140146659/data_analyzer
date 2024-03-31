@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import './appSideBar.css';
 
 const AppSideBar = () => {
@@ -10,7 +10,8 @@ const AppSideBar = () => {
                     <NavLink to="/praof">ПРАОФ</NavLink>
                 </nav>
             </div>
-        </div>);
+        </div>
+    );
 }
 
 export default AppSideBar;
