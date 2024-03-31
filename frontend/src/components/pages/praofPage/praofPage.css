@@ -1,3 +1,7 @@
+.pageContent {
+    display: flex;
+}
+
 .praofContent {
     display: flex;
     flex-direction: column;

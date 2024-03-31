@@ -1,0 +1,43 @@
+.mainResult {
+    font-size: 1.15em;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.mainResult__block {
+    background-color: #fff;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.mainResult__blockTitle {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.mainResult__item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mainResult__item p {
+    margin: 0;
+}
+
+.mainResult__item .data {
+    font-size: 0.9em;
+}
+
+
+.mainResult__item .data span{
+    margin-right: 15px;
+}
+
+.mainResult__item__image {
+    width: 800px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
