@@ -101,6 +101,7 @@ const MainResult = ({dataObj}) => {
                             </span>
                         )}
                     </p>
+                    <img className="mainResult__item__image" src={require('../../first_part_pics/emp_density_no_curve.png')} alt="" />
                 </div>
             </div>
         </div>

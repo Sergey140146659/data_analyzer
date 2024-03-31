@@ -36,3 +36,7 @@
 .mainResult__item .data span{
     margin-right: 15px;
 }
+
+.mainResult__item__image {
+    width: 800px;
+}
