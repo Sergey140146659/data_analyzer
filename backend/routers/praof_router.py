@@ -1,5 +1,4 @@
-from fastapi import APIRouter, Response, Request
-import os
+from fastapi import APIRouter, Response
 import json
 import numpy as np
 from PRAOF.analytical_functions.envelopes import envelopes
