@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 import AppSideBar from "../../appSideBar/AppSideBar";
 import MainForm from "../../mainForm/MainForm";
@@ -6,6 +6,7 @@ import MainResult from "../../mainResult/MainResult";
 
 
 import './mainPage.css';
+import {smoothScroll} from "../../../services/utilities";
 
 const MainPage = () => {
     const [loading, setLoading] = useState(false);
@@ -338,6 +339,11 @@ const MainPage = () => {
         ],
         "kolmogorov_statistics_lin": 1.78
     })
+
+    useEffect(() => {
+        smoothScroll();
+    }, []);
+
 
     return (
         <div className="pageContent">

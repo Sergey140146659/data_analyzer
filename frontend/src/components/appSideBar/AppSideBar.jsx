@@ -23,8 +23,18 @@ const AppSideBar = ({place}) => {
                         </>
                         : <NavLink to="/">ПОСД</NavLink>
                     }
-
-                    <NavLink to="/praof">ПРАОФ</NavLink>
+                    {place === 'praof' ?
+                        <>
+                            <div className="nav__link">
+                                <NavLink to="/praof">ПРАОФ</NavLink>
+                                <div className="subLinks">
+                                    <a href="#section1">График точек</a>
+                                    <a href="#section2">Сглаженный график точек</a>
+                                    <a href="#section3">Аппроксимация данных</a>
+                                    <a href="#section4">Амплитуды значений</a>
+                                </div>
+                            </div>
+                        </> : <NavLink to="/praof">ПРАОФ</NavLink>}
                 </nav>
             </div>
         </div>

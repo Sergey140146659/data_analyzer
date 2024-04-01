@@ -1,10 +1,11 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 import AppSideBar from "../../appSideBar/AppSideBar";
 import PraofForm from "../../praofForm/PraofForm";
 import PraofResult from "../../praofResult/PraofResult";
 
 import './praofPage.css';
+import {smoothScroll} from "../../../services/utilities";
 
 
 const PraofPage = () => {
@@ -17,9 +18,14 @@ const PraofPage = () => {
             supsmooth_points_pic: "praof_pics/thumbnail2.png"
         })
 
+    useEffect(() => {
+        smoothScroll();
+    }, []);
+
+
     return (
         <div className="pageContent">
-            <AppSideBar/>
+            <AppSideBar place="praof" />
             <div className="praofContent">
                 <h1 className="pageTitle">Последовательность ранжирования амплитуд относительно флуктуации</h1>
                 <PraofForm setCurData={setCurData} setLoading={setLoading} />

@@ -122,8 +122,52 @@ const MainResult = ({dataObj}) => {
                         </tbody>
                     </table>
                 </div>
-                <img className="mainResult__item__image" src={require(`../../${dataObj.emp_distr_function}`)}
-                     alt=""/>
+                <div className="mainResult__item">
+                    <p>Эмпирическая функция распределения F<sub>n</sub>*(x)</p>
+                    <p className="data data_math">
+                        <math>
+                            <msubsup>
+                                <mi>F</mi>
+                                <mn>n</mn>
+                                <mn>*</mn>
+                            </msubsup>
+                            <mo>(x)</mo>
+                            <mo>=</mo>
+                            <mrow>
+                                <mo>{'{'}</mo>
+                                <mtable>
+                                    <mtr>
+                                        <mtd>
+                                            <mn>0</mn>
+                                        </mtd>
+                                        <mtd>
+                                            <mn>
+                                                x ≤
+                                                {dataObj.border_points[0]}</mn>
+                                        </mtd>
+                                    </mtr>
+                                    {dataObj.accumulated_frequencies.map((item, index, arr) =>
+                                        (<mtr key={index}>
+                                            <mtd>
+                                                <mn>{item}</mn>
+                                            </mtd>
+                                            <mtd>
+                                                <mn>{index === arr.length - 1 ? `x > ${dataObj.border_points[index]}` : `${dataObj.middle_points[index]}
+                                                     < x ≤
+                                                    ${dataObj.border_points[index + 1]}`}
+                                                </mn>
+                                            </mtd>
+                                        </mtr>)
+                                    )}
+                                </mtable>
+                            </mrow>
+                        </math>
+                    </p>
+                </div>
+                <div className="mainResult__item">
+                    <img className="mainResult__item__image" src={require(`../../${dataObj.emp_distr_function}`)}
+                         alt=""/>
+                </div>
             </div>
             <div className="mainResult__block" id="section3">
                 <h2 className="mainResult__blockTitle">Построение эмпирической плотности распределения</h2>
@@ -137,8 +181,53 @@ const MainResult = ({dataObj}) => {
                         )}
                     </p>
                 </div>
-                <img className="mainResult__item__image" src={require(`../../${dataObj.emp_density_no_curve}`)}
-                     alt=""/>
+                <div className="mainResult__item">
+                    <img className="mainResult__item__image" src={require(`../../${dataObj.emp_density_no_curve}`)}
+                         alt=""/>
+                </div>
+                <div className="mainResult__item">
+                    <p>Эмпирическая плотность распределения</p>
+                    <p className="data data_math">
+                        <math>
+                            <msubsup>
+                                <mi>f</mi>
+                                <mn>i</mn>
+                                <mn>*</mn>
+                            </msubsup>
+
+                            <mo>(x)</mo>
+                            <mo>=</mo>
+                            <mrow>
+                                <mo>{'{'}</mo>
+                                <mtable>
+                                    <mtr>
+                                        <mtd>
+                                            <mn>0</mn>
+                                        </mtd>
+                                        <mtd>
+                                            <mn>
+                                                x ≤
+                                                {dataObj.middle_points[0]}</mn>
+                                        </mtd>
+                                    </mtr>
+                                    {dataObj.empirical_density.map((item, index, arr) =>
+                                        (<mtr key={index}>
+                                            <mtd>
+                                                <mn>{item}</mn>
+                                            </mtd>
+                                            <mtd>
+                                                <mn>{index === arr.length - 1 ? `x > ${dataObj.middle_points[index]}` : `${dataObj.middle_points[index]}
+                                                     < x ≤
+                                                    ${dataObj.middle_points[index + 1]}`}
+                                                </mn>
+                                            </mtd>
+                                        </mtr>)
+                                    )}
+                                </mtable>
+                            </mrow>
+                        </math>
+                    </p>
+                </div>
             </div>
             <div className="mainResult__block" id="section4">
                 <h2 className="mainResult__blockTitle">Получение точечных статических оценок</h2>
