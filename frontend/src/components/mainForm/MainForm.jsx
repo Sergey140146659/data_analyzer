@@ -2,16 +2,22 @@ import useMainService from '../../services/MainService';
 
 import './mainForm.css'
 
-const MainForm = ({setCurData}) => {
+const MainForm = ({setCurData, setLoading}) => {
     const {postData} = useMainService();
     const onSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
         const data = e.target.querySelector("textarea").value
             .split(", ")
             .map(str => Number(str));
         const k = Number(e.target.querySelector("input[type='number']").value);
-        console.log(await postData(data, k));
-        setCurData(await postData(data, k));
+
+        postData(data, k).then((res) => {
+            console.log(res);
+            setCurData(res);
+            setLoading(false);
+        })
+
     }
     return (
         <form onSubmit={(e) => onSubmit(e)}>

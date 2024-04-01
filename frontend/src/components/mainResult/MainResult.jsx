@@ -1,10 +1,9 @@
 import './mainResult.css'
 
 const MainResult = ({dataObj}) => {
-    console.log(dataObj)
     return (
         <div className="mainResult">
-            <div className="mainResult__block">
+            <div className="mainResult__block" id="section1">
                 <h2 className="mainResult__blockTitle">Построение интервального статистического ряда</h2>
                 <div className="mainResult__item">
                     <p>Объем выборки</p>
@@ -87,7 +86,7 @@ const MainResult = ({dataObj}) => {
                          alt=""/>
                 </div>
             </div>
-            <div className="mainResult__block">
+            <div className="mainResult__block" id="section2">
                 <h2 className="mainResult__blockTitle">Построение эмпирической функции распределения</h2>
                 <div className="mainResult__item">
                     <p>Накопленные частоты</p>
@@ -99,10 +98,34 @@ const MainResult = ({dataObj}) => {
                         )}
                     </p>
                 </div>
+                <div className="mainResult__item">
+                    <table className="mainResult__table">
+                        <tbody>
+                        <tr>
+                            <td>a̅<sub>i</sub></td>
+                            {dataObj.interval_frequencies.map((item, index, arr) =>
+                                <td key={index}>{item}</td>
+                            )}
+                        </tr>
+                        <tr>
+                            <td>p<sub>i</sub>*</td>
+                            {dataObj.interval_frequencies.map((item, index, arr) =>
+                                <td key={index}>{item}</td>
+                            )}
+                        </tr>
+                        <tr>
+                            <td>z<sub>i</sub></td>
+                            {dataObj.accumulated_frequencies.map((item, index, arr) =>
+                                <td key={index}>{item}</td>
+                            )}
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <img className="mainResult__item__image" src={require(`../../${dataObj.emp_distr_function}`)}
                      alt=""/>
             </div>
-            <div className="mainResult__block">
+            <div className="mainResult__block" id="section3">
                 <h2 className="mainResult__blockTitle">Построение эмпирической плотности распределения</h2>
                 <div className="mainResult__item">
                     <p>Эмпирическая плотность распределения</p>
@@ -117,7 +140,7 @@ const MainResult = ({dataObj}) => {
                 <img className="mainResult__item__image" src={require(`../../${dataObj.emp_density_no_curve}`)}
                      alt=""/>
             </div>
-            <div className="mainResult__block">
+            <div className="mainResult__block" id="section4">
                 <h2 className="mainResult__blockTitle">Получение точечных статических оценок</h2>
                 <div className="mainResult__item">
                     <p>Выборочное среднее</p>
@@ -154,8 +177,12 @@ const MainResult = ({dataObj}) => {
                     </p>
                 </div>
             </div>
-            <div className="mainResult__block">
+            <div className="mainResult__block" id="section5">
                 <h2 className="mainResult__blockTitle">Проверка гипотезы о нормальном распределении</h2>
+                <div className="mainResult__item">
+                    <img className="mainResult__item__image" src={require(`../../${dataObj.emp_density_normal}`)}
+                         alt=""/>
+                </div>
                 <div className="mainResult__item">
                     <p>Теоретические вероятности</p>
                     <p className="data">
@@ -164,6 +191,112 @@ const MainResult = ({dataObj}) => {
                                 p<sub>{index}</sub> = {item}{index !== arr.length - 1 ? "," : ""}
                             </span>
                         )}
+                    </p>
+                </div>
+                <div className="mainResult__item">
+                    <table className="mainResult__table">
+                        <tbody>
+                        <tr>
+                            <td>m<sub>i</sub></td>
+                            {dataObj.united_frequencies.map((item, index, arr) =>
+                                <td key={index}>{item}</td>
+                            )}
+                        </tr>
+                        <tr>
+                            <td>m<sub>i</sub>'</td>
+                            {dataObj.united_theoretical_frequencies_normal.map((item, index, arr) =>
+                                <td key={index}>{item}</td>
+                            )}
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div className="mainResult__item">
+                    <p>Наблюдаемое значение критерия Пирсона</p>
+                    <p className="data">
+                        χ = {dataObj.chi_squared_normal}
+                    </p>
+                </div>
+            </div>
+            <div className="mainResult__block" id="section6">
+                <h2 className="mainResult__blockTitle">Проверка гипотезы о экспоненциальном распределении</h2>
+                <div className="mainResult__item">
+                    <img className="mainResult__item__image" src={require(`../../${dataObj.emp_density_exp}`)}
+                         alt=""/>
+                </div>
+                <div className="mainResult__item">
+                    <p>Теоретические вероятности</p>
+                    <p className="data">
+                        {dataObj.theoretical_probabilities_exp.map((item, index, arr) =>
+                            <span key={index}>
+                                p<sub>{index}</sub> = {item}{index !== arr.length - 1 ? "," : ""}
+                            </span>
+                        )}
+                    </p>
+                </div>
+                <div className="mainResult__item">
+                    <table className="mainResult__table">
+                        <tbody>
+                        <tr>
+                            <td>m<sub>i</sub></td>
+                            {dataObj.united_frequencies.map((item, index, arr) =>
+                                <td key={index}>{item}</td>
+                            )}
+                        </tr>
+                        <tr>
+                            <td>m<sub>i</sub>'</td>
+                            {dataObj.united_theoretical_frequencies_exp.map((item, index, arr) =>
+                                <td key={index}>{item}</td>
+                            )}
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div className="mainResult__item">
+                    <p>Наблюдаемое значение критерия Пирсона</p>
+                    <p className="data">
+                        χ = {dataObj.chi_squared_exp}
+                    </p>
+                </div>
+            </div>
+            <div className="mainResult__block" id="section7">
+                <h2 className="mainResult__blockTitle">Проверка гипотезы о линейном распределении</h2>
+                <div className="mainResult__item">
+                    <img className="mainResult__item__image" src={require(`../../${dataObj.emp_density_lin}`)}
+                         alt=""/>
+                </div>
+                <div className="mainResult__item">
+                    <p>Теоретические вероятности</p>
+                    <p className="data">
+                        {dataObj.theoretical_probabilities_lin.map((item, index, arr) =>
+                            <span key={index}>
+                                p<sub>{index}</sub> = {item}{index !== arr.length - 1 ? "," : ""}
+                            </span>
+                        )}
+                    </p>
+                </div>
+                <div className="mainResult__item">
+                    <table className="mainResult__table">
+                        <tbody>
+                        <tr>
+                            <td>m<sub>i</sub></td>
+                            {dataObj.united_frequencies.map((item, index, arr) =>
+                                <td key={index}>{item}</td>
+                            )}
+                        </tr>
+                        <tr>
+                            <td>m<sub>i</sub>'</td>
+                            {dataObj.united_theoretical_frequencies_lin.map((item, index, arr) =>
+                                <td key={index}>{item}</td>
+                            )}
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div className="mainResult__item">
+                    <p>Наблюдаемое значение критерия Пирсона</p>
+                    <p className="data">
+                        χ = {dataObj.chi_squared_lin}
                     </p>
                 </div>
             </div>

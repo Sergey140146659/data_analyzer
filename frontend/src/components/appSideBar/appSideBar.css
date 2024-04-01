@@ -4,7 +4,7 @@
 
 .sideBar {
     min-width: 230px;
-    padding: 50px 40px;
+    padding: 50px 25px;
     background-color: #fff;
     height: 100vh;
     position: fixed;
@@ -19,4 +19,17 @@ nav {
 
 nav a {
     color: black;
+}
+
+.subLinks {
+    margin-left: 5px;
+    border-left: 1px solid rgba(0,0,0, 0.4);
+    padding-left: 10px;
+    max-width: 165px;
+}
+
+.subLinks a {
+    margin-bottom: 10px;
+    display: block;
+    color: rgba(0,0,0, 0.4);
 }
