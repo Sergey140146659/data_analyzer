@@ -8,6 +8,7 @@ import MainResult from "../../mainResult/MainResult";
 import './mainPage.css';
 
 const MainPage = () => {
+    const [loading, setLoading] = useState(false);
     const [curData, setCurData] = useState({
         "data": [
             13.2,
@@ -340,11 +341,11 @@ const MainPage = () => {
 
     return (
         <div className="pageContent">
-            <AppSideBar/>
+            <AppSideBar place="main" />
             <div className="mainContent">
                 <h1 className="pageTitle">Первичная обработка статистических данных</h1>
-                <MainForm setCurData={setCurData}/>
-                <MainResult dataObj={curData}/>
+                <MainForm setCurData={setCurData} setLoading={setLoading} />
+                {loading ? <span className="loader"></span> : <MainResult dataObj={curData}/>}
             </div>
         </div>
     );

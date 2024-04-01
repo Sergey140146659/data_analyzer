@@ -2,14 +2,19 @@ import usePraofService from "../../services/PraofService";
 
 import './praofForm.css';
 
-const PraofForm = ({setCurData}) => {
+const PraofForm = ({setCurData, setLoading}) => {
     const {postData} = usePraofService();
     const onSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
         const data = e.target.querySelector("textarea").value
                      .split(", ")
                      .map(str => Number(str));
-        setCurData(await postData(data));
+        postData(data).then((res) => {
+            setCurData(res);
+            setLoading(false);
+        })
+
     }
 
     return (
