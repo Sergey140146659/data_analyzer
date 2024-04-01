@@ -17,6 +17,11 @@ nav {
     font-size: 1.1em;
 }
 
+.nav__link > a {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
 nav a {
     color: black;
 }
@@ -25,11 +30,18 @@ nav a {
     margin-left: 5px;
     border-left: 1px solid rgba(0,0,0, 0.4);
     padding-left: 10px;
+    padding-top: 5px;
     max-width: 165px;
 }
 
 .subLinks a {
     margin-bottom: 10px;
     display: block;
-    color: rgba(0,0,0, 0.4);
+    color: rgba(0,0,0, 0.5);
+    font-size: 0.9em;
+    transition: 0.4s;
+}
+
+.subLinks a:hover {
+    color: #000;
 }

@@ -11,10 +11,10 @@ const PraofPage = () => {
     const [loading, setLoading] = useState(false);
     const [curData, setCurData] = useState(
         {
-            amplitudes: "praof_pics/85Fn0HsoIuM.jpg",
-            approximations_pic: "praof_pics/EQug5D207ck.jpg",
-            points_pic: "praof_pics/hESTmzVfIHQ.jpg",
-            supsmooth_points_pic: "praof_pics/YhsdQuC2ymA.jpg"
+            amplitudes: "praof_pics/thumbnail4.png",
+            approximations_pic: "praof_pics/thumbnail3.png",
+            points_pic: "praof_pics/thumbnail1.png",
+            supsmooth_points_pic: "praof_pics/thumbnail2.png"
         })
 
     return (
