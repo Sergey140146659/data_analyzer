@@ -53,12 +53,12 @@ def emp_dist_func_dens_show(json_name, label='Эмпирическая плот�
 
     if x_ticks is not None:
         plt.xticks([round(i,2) for i in x_ticks])
-    else:
+    elif info['n'] <= 150:
         plt.xticks([round(i,2) for i in x])
 
     if y_ticks is not None:
         plt.yticks([round(i,2) for i in y_ticks])
-    else:
+    elif info['n'] <= 150:
         plt.yticks([round(i,2) for i in y])
 
     if distribution_curve is not None:
