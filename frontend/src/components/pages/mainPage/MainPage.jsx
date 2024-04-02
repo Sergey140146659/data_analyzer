@@ -349,7 +349,7 @@ const MainPage = () => {
         <div className="pageContent">
             <AppSideBar place="main" />
             <div className="mainContent">
-                <h1 className="pageTitle">Первичная обработка статистических данных</h1>
+                <h1 className="pageTitle">Метод гистограмм</h1>
                 <MainForm setCurData={setCurData} setLoading={setLoading} />
                 {loading ? <span className="loader"></span> : <MainResult dataObj={curData}/>}
             </div>
