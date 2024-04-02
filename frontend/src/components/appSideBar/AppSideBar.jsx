@@ -9,7 +9,7 @@ const AppSideBar = ({place}) => {
                     {place === 'main' ?
                         <>
                             <div className="nav__link">
-                                <NavLink to="/">ПОСД</NavLink>
+                                <NavLink to="/">Метод Гистограмм</NavLink>
                                 <div className="subLinks">
                                     <a href="#section1">Интервальный статистический ряд</a>
                                     <a href="#section2">Эмпирическая функция распределения</a>
@@ -21,7 +21,7 @@ const AppSideBar = ({place}) => {
                                 </div>
                             </div>
                         </>
-                        : <NavLink to="/">ПОСД</NavLink>
+                        : <NavLink to="/">Метод Гистограмм</NavLink>
                     }
                     {place === 'praof' ?
                         <>
