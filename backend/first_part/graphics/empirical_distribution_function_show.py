@@ -32,11 +32,11 @@ def emp_dist_func_show(json_name, label='Эмпирическая функция
 
     if x_ticks is not None:
         plt.xticks([round(i, 2) for i in x_ticks])
-    else:
+    elif info['n'] <= 150:
         plt.xticks([round(i,2) for i in x_axis])
     if y_ticks is not None:
         plt.yticks([round(i, 2) for i in y_ticks])
-    else:
+    elif info['n'] <= 150:
         plt.yticks([round(i,2) for i in y_axis])
 
     if name is not None:
