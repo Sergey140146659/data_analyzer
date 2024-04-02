@@ -14,9 +14,9 @@ def show_points(json_name, key, label='', marker='vr', x_ticks=None, x_label='',
     x_axis = [i for i in range(len( data))]
     y_axis = data[:]
     if info['n'] > 150:
-        plt.plot(x_axis, y_axis, marker, markersize = 15)
+        plt.plot(x_axis, y_axis, marker = 'o', color = 'blue', markersize = 10,linestyle='None')
     else:
-        plt.plot(x_axis, y_axis, marker, markersize=25)
+        plt.plot(x_axis, y_axis, marker = 'o', color = 'blue', markersize=20,linestyle='None')
 
     if y_ticks is not None:
         plt.yticks(y_ticks,y_label)
