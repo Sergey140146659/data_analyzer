@@ -13,9 +13,12 @@ const PraofPage = () => {
     const [curData, setCurData] = useState(
         {
             amplitudes: "praof_pics/thumbnail4.png",
-            approximations_pic: "praof_pics/thumbnail3.png",
+            amplitudes_with_curves: "praof_pics/thumbnail5.png",
+            interpolation_pic: "praof_pics/thumbnail3.png",
             points_pic: "praof_pics/thumbnail1.png",
-            supsmooth_points_pic: "praof_pics/thumbnail2.png"
+            supsmooth_points_pic: "praof_pics/thumbnail2.png",
+            coefs_greater: [0.67, -21.5, 1.04, -0.13],
+            coefs_less: [-0.95, -0.11, -0.17, -21.09]
         })
 
     useEffect(() => {
@@ -27,9 +30,9 @@ const PraofPage = () => {
         <div className="pageContent">
             <AppSideBar place="praof" />
             <div className="praofContent">
-                <h1 className="pageTitle">Последовательность ранжирования амплитуд относительно флуктуации</h1>
+                <h1 className="pageTitle">Последовательность ранжирования амплитуд относительно флуктуаций</h1>
                 <PraofForm setCurData={setCurData} setLoading={setLoading} />
-                {loading ? <span className="loader"></span> : <PraofResult objImages={curData}/>}
+                {loading ? <span className="loader"></span> : <PraofResult obj={curData}/>}
             </div>
         </div>
     );
