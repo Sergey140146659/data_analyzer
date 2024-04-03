@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import mean_squared_error, r2_score
-
+from scipy import interpolate
 
 def approximation(x, y, degree=2, title='title', xlabel='xlabel', ylabel='ylabel', png_name=None, **kwargs):
     if degree == 0:
@@ -41,3 +41,5 @@ def get_best_approximation_degree(x, y, k):
             min_error = error
             best_degree = degree
     return best_degree
+
+
