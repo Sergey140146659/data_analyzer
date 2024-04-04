@@ -306,22 +306,6 @@ const MainResult = ({dataObj}) => {
                         χ = {dataObj.chi_squared_normal}
                     </p>
                 </div>
-                <div className="mainResult__item">
-                    <p>Значение теоретической функции F<sub>0</sub>(x)</p>
-                    <p className="data">
-                        {dataObj.theoretical_distribution_function_normal.map((item, index, arr) =>
-                            <span key={index}>
-                                F<sub>0</sub>({dataObj.border_points[index]}) = {item}{index !== arr.length - 1 ? "," : ""}
-                            </span>
-                        )}
-                    </p>
-                </div>
-                <div className="mainResult__item">
-                    <p>Значение статистики Колмагорова</p>
-                    <p className="data">
-                        ξ<sub>n</sub> = {dataObj.kolmogorov_statistics_normal}
-                    </p>
-                </div>
             </div>
             <div className="mainResult__block" id="section6">
                 <h2 className="mainResult__blockTitle">Проверка гипотезы о экспоненциальном распределении</h2>
@@ -363,22 +347,6 @@ const MainResult = ({dataObj}) => {
                         χ = {dataObj.chi_squared_exp}
                     </p>
                 </div>
-                <div className="mainResult__item">
-                    <p>Значение теоретической функции F<sub>0</sub>(x)</p>
-                    <p className="data">
-                        {dataObj.theoretical_distribution_function_exp.map((item, index, arr) =>
-                            <span key={index}>
-                                F<sub>0</sub>({dataObj.border_points[index]}) = {item}{index !== arr.length - 1 ? "," : ""}
-                            </span>
-                        )}
-                    </p>
-                </div>
-                <div className="mainResult__item">
-                    <p>Значение статистики Колмагорова</p>
-                    <p className="data">
-                        ξ<sub>n</sub> = {dataObj.kolmogorov_statistics_exp}
-                    </p>
-                </div>
             </div>
             <div className="mainResult__block" id="section7">
                 <h2 className="mainResult__blockTitle">Проверка гипотезы о линейном распределении</h2>
@@ -418,22 +386,6 @@ const MainResult = ({dataObj}) => {
                     <p>Наблюдаемое значение критерия Пирсона</p>
                     <p className="data">
                         χ = {dataObj.chi_squared_lin}
-                    </p>
-                </div>
-                <div className="mainResult__item">
-                    <p>Значение теоретической функции F<sub>0</sub>(x)</p>
-                    <p className="data">
-                        {dataObj.theoretical_distribution_function_lin.map((item, index, arr) =>
-                            <span key={index}>
-                                F<sub>0</sub>({dataObj.border_points[index]}) = {item}{index !== arr.length - 1 ? "," : ""}
-                            </span>
-                        )}
-                    </p>
-                </div>
-                <div className="mainResult__item">
-                    <p>Значение статистики Колмагорова</p>
-                    <p className="data">
-                        ξ<sub>n</sub> = {dataObj.kolmogorov_statistics_lin}
                     </p>
                 </div>
             </div>

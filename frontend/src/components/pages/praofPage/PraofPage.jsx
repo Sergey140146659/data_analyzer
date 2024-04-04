@@ -30,7 +30,7 @@ const PraofPage = () => {
         <div className="pageContent">
             <AppSideBar place="praof" />
             <div className="praofContent">
-                <h1 className="pageTitle">Последовательность ранжирования амплитуд относительно флуктуаций</h1>
+                <h1 className="pageTitle">Последовательности ранжированных амплитуд относительно флуктуаций</h1>
                 <PraofForm setCurData={setCurData} setLoading={setLoading} />
                 {loading ? <span className="loader"></span> : <PraofResult obj={curData}/>}
             </div>
