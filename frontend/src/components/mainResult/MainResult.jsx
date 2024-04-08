@@ -230,7 +230,7 @@ const MainResult = ({dataObj}) => {
                 </div>
             </div>
             <div className="mainResult__block" id="section4">
-                <h2 className="mainResult__blockTitle">Получение точечных статических оценок</h2>
+                <h2 className="mainResult__blockTitle">Получение точечных статистических оценок</h2>
                 <div className="mainResult__item">
                     <p>Выборочное среднее</p>
                     <p className="data">
