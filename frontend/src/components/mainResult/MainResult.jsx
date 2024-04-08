@@ -306,6 +306,12 @@ const MainResult = ({dataObj}) => {
                         χ = {dataObj.chi_squared_normal}
                     </p>
                 </div>
+                <div className="mainResult__item">
+                    <p>Критерий истинности Колмагорова</p>
+                    <p className="data">
+                        ξ<sub>n</sub> = {dataObj.kolmogorov_statistics_normal}
+                    </p>
+                </div>
             </div>
             <div className="mainResult__block" id="section6">
                 <h2 className="mainResult__blockTitle">Проверка гипотезы о экспоненциальном распределении</h2>
@@ -347,6 +353,12 @@ const MainResult = ({dataObj}) => {
                         χ = {dataObj.chi_squared_exp}
                     </p>
                 </div>
+                <div className="mainResult__item">
+                    <p>Критерий истинности Колмагорова</p>
+                    <p className="data">
+                        ξ<sub>n</sub> = {dataObj.kolmogorov_statistics_exp}
+                    </p>
+                </div>
             </div>
             <div className="mainResult__block" id="section7">
                 <h2 className="mainResult__blockTitle">Проверка гипотезы о линейном распределении</h2>
@@ -386,6 +398,12 @@ const MainResult = ({dataObj}) => {
                     <p>Наблюдаемое значение критерия Пирсона</p>
                     <p className="data">
                         χ = {dataObj.chi_squared_lin}
+                    </p>
+                </div>
+                <div className="mainResult__item">
+                    <p>Критерий истинности Колмагорова</p>
+                    <p className="data">
+                        ξ<sub>n</sub> = {dataObj.kolmogorov_statistics_lin}
                     </p>
                 </div>
             </div>
