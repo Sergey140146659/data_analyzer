@@ -307,7 +307,7 @@ const MainResult = ({dataObj}) => {
                     </p>
                 </div>
                 <div className="mainResult__item">
-                    <p>Критерий истинности Колмагорова</p>
+                    <p>Критерий истинности Колмогорова</p>
                     <p className="data">
                         ξ<sub>n</sub> = {dataObj.kolmogorov_statistics_normal}
                     </p>
@@ -354,7 +354,7 @@ const MainResult = ({dataObj}) => {
                     </p>
                 </div>
                 <div className="mainResult__item">
-                    <p>Критерий истинности Колмагорова</p>
+                    <p>Критерий истинности Колмогорова</p>
                     <p className="data">
                         ξ<sub>n</sub> = {dataObj.kolmogorov_statistics_exp}
                     </p>
@@ -401,7 +401,7 @@ const MainResult = ({dataObj}) => {
                     </p>
                 </div>
                 <div className="mainResult__item">
-                    <p>Критерий истинности Колмагорова</p>
+                    <p>Критерий истинности Колмогорова</p>
                     <p className="data">
                         ξ<sub>n</sub> = {dataObj.kolmogorov_statistics_lin}
                     </p>
